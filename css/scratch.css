@@ -1,0 +1,139 @@
+/* scratch.css */
+
+/* Google Fonts - Lora and Open Sans */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #032546;
+    /* background-image: url('../assets/img/cloud.jfif');  */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #f39ac5;
+        line-height: 1.6;
+    padding-top: 4rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    color: #4d0c34;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    color: #880446;
+    margin-top: 2rem;
+}
+
+h2 {
+    font-size: 2.75rem;
+    text-align: center;
+    color: #4f1562;
+}
+
+h3{
+    font-size: 1.55rem;
+    text-align: center;
+
+}
+
+/* ul.centered-list, ol.centered-list {
+    list-style-position: inside;
+    padding-left: 0;
+    text-align: center;
+    color: rgb(134, 21, 73);
+    margin-bottom: 2rem;
+} */
+
+.listcoloring{
+    color: rgb(134, 21, 73);
+    font-size: 1.23rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.list2coloring{
+    color: #0c453d;
+    font-size: 1.43rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.centered-list {
+    width: fit-content;            
+    margin: 0 auto;                
+    padding-left: 20px;           
+  }
+  
+  .centered-list ul {
+    margin-left: 20px;            
+    padding-left: 20px;
+  }
+  
+  .centered-list li {
+    margin-bottom: 5px;           
+  }
+  
+
+li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.textsection {
+    font-weight: bold;
+    color: #2d2868;
+    font-size: 1.2rem;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 1rem;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #004080;
+    text-decoration: underline;
+}
+
+img {
+    display: block;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f2afd8;
+    color: #ff49d2;
+    font-style: italic;
+    margin-top: 4rem;
+}
+
+iframe {
+    width: 100%;
+    height: 1100px;
+    border: none;
+}
+
+button {
+    margin-bottom: 40px;
+    padding: 12px 24px;
+    background-color: #ff57c1;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f38ed3;
+}
+

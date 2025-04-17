@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Idea Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    select, button {
+      padding: 10px 15px;
+      margin: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .nav-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-buttons a,
+    .nav-buttons button {
+      text-decoration: none;
+      color: white;
+      background-color: #007BFF;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-buttons a:hover,
+    .nav-buttons button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Travel Idea Generator</h1>
+  <div class="container">
+    <label for="region">Choose a region:</label>
+    <select id="region">
+      <option value="Europe">Europe</option>
+      <option value="Asia">Asia</option>
+      <option value="Americas">Americas</option>
+      <option value="Africa">Africa</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+
+    <label for="theme">Choose a theme:</label>
+    <select id="theme">
+      <option value="Adventure">Adventure</option>
+      <option value="Relaxation">Relaxation</option>
+      <option value="Culture">Culture</option>
+      <option value="Food">Food</option>
+      <option value="Nature">Nature</option>
+    </select>
+
+    <button onclick="generateIdea()">Generate Plan</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+
+  <script>
+    const ideas = {
+      Europe: {
+        Adventure: ["Hike the Dolomites in Italy", "Go glacier hiking in Iceland", "Paraglide in the Alps"],
+        Relaxation: ["Sunbathe on the Amalfi Coast", "Spa weekend in Budapest", "Lake retreat in Switzerland"],
+        Culture: ["Museum hop in Paris", "Explore historic Prague", "Take a castle tour in Scotland"],
+        Food: ["Food tour in Barcelona", "Pasta-making class in Rome", "Wine tasting in Bordeaux"],
+        Nature: ["Explore Plitvice Lakes in Croatia", "Cycle through Dutch tulip fields", "Road trip through Norway’s fjords"]
+      },
+      Asia: {
+        Adventure: ["Climb Mt. Fuji", "Motorbike across Vietnam", "Scuba dive in the Philippines"],
+        Relaxation: ["Beach week in Bali", "Hot springs in Japan", "Luxury stay in the Maldives"],
+        Culture: ["Visit temples in Kyoto", "Explore Angkor Wat", "Take a calligraphy class in China"],
+        Food: ["Street food crawl in Bangkok", "Sushi tour in Tokyo", "Cooking class in India"],
+        Nature: ["Trek the Himalayas", "Wander rice terraces in Indonesia", "Elephant sanctuary visit in Thailand"]
+      },
+      Americas: {
+        Adventure: ["Hike the Inca Trail", "Kayak in Patagonia", "Surf in Costa Rica"],
+        Relaxation: ["Beach time in Tulum", "Hot springs in Colorado", "Vineyard escape in California"],
+        Culture: ["Art tour in NYC", "Explore colonial towns in Colombia", "Visit jazz clubs in New Orleans"],
+        Food: ["BBQ in Texas", "Michelin crawl in NYC", "Taco tour in Mexico City"],
+        Nature: ["Visit Yellowstone", "Amazon rainforest adventure", "Road trip along the Pacific Coast Highway"]
+      },
+      Africa: {
+        Adventure: ["Climb Kilimanjaro", "Safari in Kenya", "Sandboard in Namibia"],
+        Relaxation: ["Chill in Zanzibar", "Resort stay in Seychelles", "Wellness retreat in Morocco"],
+        Culture: ["Explore Cape Town history", "Museum hop in Egypt", "Tribal tour in Tanzania"],
+        Food: ["Street eats in Ethiopia", "Tagine tasting in Morocco", "Cape Winelands tour"],
+        Nature: ["Victoria Falls visit", "Sahara desert trek", "Gorilla trekking in Uganda"]
+      },
+      Oceania: {
+        Adventure: ["Skydive in New Zealand", "Scuba the Great Barrier Reef", "Surf the Gold Coast"],
+        Relaxation: ["Island hop in Fiji", "Retreat in Byron Bay", "Beach cabin stay in New Zealand"],
+        Culture: ["Explore Māori culture", "Visit Aboriginal art sites", "Museum day in Sydney"],
+        Food: ["Food trucks in Melbourne", "Wine tasting in NZ", "Seafood tour in Tasmania"],
+        Nature: ["Glowworm caves", "Outback camping", "Rainforest hike in Queensland"]
+      }
+    };
+
+    function generateIdea() {
+      const region = document.getElementById('region').value;
+      const theme = document.getElementById('theme').value;
+
+      const regionIdeas = ideas[region];
+      const themeIdeas = regionIdeas ? regionIdeas[theme] : [];
+
+      if (themeIdeas.length > 0) {
+        const randomIdea = themeIdeas[Math.floor(Math.random() * themeIdeas.length)];
+        document.getElementById('result').innerText = `🌍 Your plan: ${randomIdea}`;
+      } else {
+        document.getElementById('result').innerText = "Sorry, no idea available for that combo.";
+      }
+    }
+  </script>
+</body>
+</html>

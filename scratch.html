@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travels</title>
+    <link rel="stylesheet" href="css/scratch.css">
+</head>
+
+<body>
+        <h1 id="top">My Travels!</h1>
+       <a href="index.html"><button>Back to Home</button></a>
+    <div class="textsection"><p>Outside of school, I love to go on trips to be able to spend time with my friends and family and see the nature and beautiful places around us.</p>
+        </div>
+        <p>I love to experience different places and cultures and learn more about them. I studied abroad in London, Paris, and Rome, and have traveled to many other places, including Ecuador, Korea, and around many national parks of the U.S.</p>
+        <br><br>
+    <h3>Favorite Places I've Been</h3>
+    <div class="listcoloring">
+    <ol class="centered-list">
+        <li>National Parks
+          <ul>
+            <li>Tetons</li>
+            <li>Zion</li>
+            <li>Arches</li>
+            <li>Rocky Mountain</li>
+            <li>Haleakala</li>
+            <li>Hawaii Volcanoes</li>
+          </ul>
+        </li>
+        <li>Study Abroad
+          <ul>
+            <li>Capri</li>
+            <li>Rome</li>
+            <li>Florence</li>
+            <li>London</li>
+            <li>Paris</li>
+            <li>Giverny</li>
+            <li>Normandy</li>
+          </ul>
+        </li>
+        <li>Visiting Family
+          <ul>
+            <li>Hawaii</li>
+            <li>Boston</li>
+            <li>Korea</li>
+            <li>Orange County</li>
+            <li>Maryland</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <img src="assets/img/zion.jpg" alt="Angel's Landing" width="400">
+    <img src="assets/img/sandwhich.jpg" alt="Snack" width="400">
+    <h3>Places I Want To Go</h3>
+    <div class="list2coloring">
+        <ol class="centered-list">
+            <li>Patagonia</li>
+            <li>Barcelona</li>
+            <li>Morocco</li>
+        </ol>
+    </div>
+    <br>
+    
+    <a href="webapp.html"><button>Plan a trip!</button></a>
+    <br><br>
+    <h2>See the Tetons!</h2>
+        <iframe class="iframe" src="https://www.youtube.com/embed/RMyvMf8hB_0" frameborder="0" allowfullscreen></iframe>
+    <br><br>
+
+        <h2>✈️ Explore Airline Data</h2>
+    
+        <div class="dashboard-container">
+            <iframe class="iframe" 
+                src="https://public.tableau.com/views/AirlineData_17045828053120/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
+                allowfullscreen
+            ></iframe>
+        </div>
+    
+        <button class="button" onclick="refreshDashboard()">🔄 Refresh Dashboard</button>
+    
+        <script>
+            function refreshDashboard() {
+                const iframe = document.querySelector('iframe');
+                iframe.src = iframe.src;
+            }
+        </script>
+    <a href="#top"><button>Go to the top</button></a>
+
+</body>
+<footer>that's all!!</footer>
+</html>
